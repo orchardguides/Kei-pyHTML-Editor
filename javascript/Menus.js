@@ -51,6 +51,11 @@ document.addEventListener('keydown', function(event) {
 	    Edit.execCut();
 		return;
 	}
+	if ((event.key == "Paste") || (event.ctrlKey && ["V","v"].includes(event.key))) {
+		event.preventDefault();
+	    Edit.execPaste();
+		return;
+	}
 	if (event.ctrlKey  &&  event.shiftKey  &&  ["Z","z"].includes(event.key)) {
 		event.preventDefault();
 		Edit.execCommand('redo');

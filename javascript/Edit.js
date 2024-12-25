@@ -113,9 +113,9 @@ class Edit {
 		document.execCommand(action, false, value);    //Only place where changes to the Document occur
 		Edit.focusInContentEditable();
 	}
-	static execCommandWithoutCrossingBlock(action, value) {
-		Edit.execCommand(action, value);
-	}
+//	static execCommandWithoutCrossingBlock(action, value) {
+//		Edit.execCommand(action, value);
+//	}
 	static insertHTML(html) {
 		Edit.execCommand('insertHTML', html);
 	}
@@ -236,6 +236,10 @@ class Edit {
 		startParentRange.setEndAfter(Edit.getLastLeaf(startParent));
 		Edit.selectRange(startParentRange);
 		Edit.execCommand('cut');
+	}
+
+	static execPaste() {
+		Edit.execCommand('paste');
 	}
 
 	static trimTagFromSelection(tag) {
